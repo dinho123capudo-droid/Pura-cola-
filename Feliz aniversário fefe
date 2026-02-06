@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Feliz Aniversário 🎆</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ===== FUNDO REALISTA ===== */
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at bottom, #1b2735 0%, #090a0f 60%, #000 100%);
+  font-family: Arial, sans-serif;
+  color: #fff;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* ===== ESTRELAS ===== */
+.stars, .stars2, .stars3 {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  animation: twinkle 6s infinite alternate;
+}
+
+.stars {
+  box-shadow:
+    100px 200px #fff, 300px 400px #fff, 500px 100px #fff,
+    700px 300px #fff, 900px 150px #fff, 1100px 500px #fff,
+    1300px 250px #fff, 1500px 450px #fff;
+}
+
+.stars2 {
+  box-shadow:
+    150px 100px #aaa, 350px 250px #aaa, 600px 350px #aaa,
+    850px 200px #aaa, 1050px 400px #aaa;
+  animation-duration: 8s;
+}
+
+.stars3 {
+  box-shadow:
+    200px 300px #666, 400px 150px #666, 750px 450px #666,
+    1000px 100px #666;
+  animation-duration: 10s;
+}
+
+@keyframes twinkle {
+  from { opacity: .3; }
+  to { opacity: 1; }
+}
+
+/* ===== TEXTOS ===== */
+h1 {
+  margin-top: 60px;
+  font-size: 3em;
+  text-shadow: 0 0 25px #ff69b4;
+}
+
+h2 {
+  font-size: 2em;
+  color: #ffb6c1;
+}
+
+p {
+  max-width: 90%;
+  margin: auto;
+  font-size: 1.2em;
+}
+
+/* ===== BOTÃO ===== */
+button {
+  margin-top: 25px;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255,105,180,.8);
+}
+
+/* ===== ASSINATURA ===== */
+.signature {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  font-size: 1.2em;
+  font-family: "Courier New", monospace;
+  color: #fff;
+
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  border-right: 3px solid #fff;
+
+  animation: typing 12s steps(40) forwards, blink .8s infinite;
+  z-index: 10;
+}
+
+.signature::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.9), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes typing {
+  to { width: 22ch; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes shine {
+  to { left: 120%; }
+}
+
+/* ===== FOGOS ===== */
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow:
+    0 0 #ff0, 0 0 #f0f, 0 0 #0ff,
+    0 0 #fff, 0 0 #f00;
+  animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+  to {
+    box-shadow:
+      -80px -20px #ff0,
+      80px -20px #f0f,
+      -60px 60px #0ff,
+      60px 60px #fff,
+      0 -90px #f00;
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body onclick="criarFogo(event)">
+
+<!-- Estrelas -->
+<div class="stars"></div>
+<div class="stars stars2"></div>
+<div class="stars stars3"></div>
+
+<h1>🎆 Feliz Aniversário 🎆</h1>
+<h2>Ferreira 💖</h2>
+
+<p>
+Hoje o céu brilha diferente 🌌<br>
+Você completa <strong>18 anos</strong> ✨<br>
+Que seus sonhos sejam tão altos quanto as estrelas 💕
+</p>
+
+<button onclick="tocarMusica()">▶ Ativar música</button>
+
+<!-- Música invisível -->
+<iframe id="musica" width="1" height="1"
+src="https://www.youtube.com/embed/ei2-RjJDBHc?enablejsapi=1"
+frameborder="0" allow="autoplay">
+</iframe>
+
+<!-- Assinatura -->
+<div class="signature">
+Escrito por calvao ✨
+</div>
+
+<script>
+let tocando = false;
+function tocarMusica() {
+  if (!tocando) {
+    document.getElementById("musica").src += "&autoplay=1";
+    tocando = true;
+  }
+}
+
+function criarFogo(e) {
+  const fogo = document.createElement("div");
+  fogo.className = "firework";
+  fogo.style.left = e.clientX + "px";
+  fogo.style.top = e.clientY + "px";
+  document.body.appendChild(fogo);
+  setTimeout(() => fogo.remove(), 1000);
+}
+</script>
+
+</body>
+</html>}
+
+/* ===== BOTÃO ===== */
+button {
+  margin-top: 25px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ff69b4, #ff1493);
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255,105,180,.8);
+}
+
+/* ===== ASSINATURA ===== */
+.signature {
+  margin-top: 60px;
+  font-size: 1.4em;
+  font-family: "Courier New", monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  border-right: 3px solid #fff;
+  position: relative;
+  animation: typing 10s steps(45) forwards, blink .8s infinite;
+}
+
+.signature::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.9), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes typing {
+  to { width: 28ch; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes shine {
+  to { left: 120%; }
+}
+
+/* ===== FOGOS ===== */
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow:
+    0 0 #ff0, 0 0 #f0f, 0 0 #0ff,
+    0 0 #fff, 0 0 #f00;
+  animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+  to {
+    box-shadow:
+      -80px -20px #ff0,
+      80px -20px #f0f,
+      -60px 60px #0ff,
+      60px 60px #fff,
+      0 -90px #f00;
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body onclick="criarFogo(event)">
+
+<!-- estrelas -->
+<div class="stars"></div>
+<div class="stars stars2"></div>
+<div class="stars stars3"></div>
+
+<h1>🎆 Feliz Aniversário 🎆</h1>
+<h2>Ferreira 💖</h2>
+
+<p>
+Hoje o céu está diferente… 🌌 <br>
+Você completa <strong>18 anos</strong> ✨<br>
+Que sua vida seja iluminada como as estrelas 💕
+</p>
+
+<button onclick="tocarMusica()">▶ Ativar música</button>
+
+<!-- música invisível -->
+<iframe id="musica" width="1" height="1"
+src="https://www.youtube.com/embed/ei2-RjJDBHc?enablejsapi=1"
+frameborder="0" allow="autoplay">
+</iframe>
+
+<div class="signature">
+Com carinho, de alguém que te deseja o melhor 💖
+</div>
+
+<script>
+let tocando = false;
+function tocarMusica() {
+  if (!tocando) {
+    document.getElementById("musica").src += "&autoplay=1";
+    tocando = true;
+  }
+}
+
+function criarFogo(e) {
+  const fogo = document.createElement("div");
+  fogo.className = "firework";
+  fogo.style.left = e.clientX + "px";
+  fogo.style.top = e.clientY + "px";
+  document.body.appendChild(fogo);
+  setTimeout(() => fogo.remove(), 1000);
+}
+</script>
+
+</body>
+</html>
